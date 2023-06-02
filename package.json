@@ -33,11 +33,10 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
-  "peerDependencies": {
-    "lodash-es": "^4.17.21",
-    "vue": "^3.2.47"
-  },
+  "peerDependencies": {},
   "devDependencies": {
+    "vue": "^3.2.47",
+    "lodash-es": "^4.17.21",
     "@types/lodash-es": "^4.17.7",
     "@vitejs/plugin-vue": "^4.2.3",
     "typescript": "^5.0.4",
