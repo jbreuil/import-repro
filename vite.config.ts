@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => {
         entry: resolve(__dirname, 'src/main.ts'),
         name: 'import-repro',
         fileName: 'import-repro',
-        formats: ['es'],
+        formats: ['es']
       },
       rollupOptions: {
         // make sure to externalize deps that shouldn't be bundled
@@ -26,10 +26,10 @@ export default defineConfig(({ mode }) => {
           // Provide global variables to use in the UMD build
           // for externalized deps
           globals: {
-            vue: 'Vue',
+            vue: 'Vue'
           },
-        },
-      },
+        }
+      }
     },
     plugins: [
       vue(),
@@ -40,27 +40,27 @@ export default defineConfig(({ mode }) => {
             if (componentName.match(/^B[A-Z]/))
               return { componentName, from: './src/components' }
           },
-        ],
+        ]
       }),
       AutoImport({
         imports: ['vue', {
           'lodash-es': [
             // default imports
             ['default', '_'], // import { default as axios } from 'axios',
-          ],
+          ]
         }],
         dts: true,
-        vueTemplate: true,
+        vueTemplate: true
       }),
       dts({
-        insertTypesEntry: true,
+        insertTypesEntry: true
       }),
     ],
     resolve: {
       alias: [
         { find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url)) },
-        { find: '@assets', replacement: fileURLToPath(new URL('./src/assets', import.meta.url)) },
-      ],
-    },
+        { find: '@assets', replacement: fileURLToPath(new URL('./src/assets', import.meta.url)) }
+      ]
+    }
   }
 })
